@@ -51,8 +51,7 @@ module.exports = function solveSudoku(matrix) {
     for(let i = 0; i < 9; i++) {
       if(matrixSudoku[row][i] === valueInMatrix && i !== col)
         return false;
-    }
-    
+    } 
     return true;
   }
 
@@ -61,13 +60,12 @@ module.exports = function solveSudoku(matrix) {
       if(matrixSudoku[i][col] === valueInMatrix && i !== row)
         return false;
     }
-    
     return true;
   }
 
   function findInSquare(row,col, valueInMatrix) {
-    for(let i = Math.floor((row)/3)*3; i < (Math.ceil((row)/3)*3); i++) {
-      for(let j = Math.floor((col)/3)*3; j < Math.ceil((col)/3)*3; j++){
+    for(let i = Math.floor((row)/3)*3; i < (Math.floor((row)/3)*3)+3; i++) {
+      for(let j = Math.floor((col)/3)*3; j < (Math.floor((col)/3)*3)+3; j++){
         if(matrixSudoku[i][j] === valueInMatrix && i !== row && j !== col)
           return false;
       }
